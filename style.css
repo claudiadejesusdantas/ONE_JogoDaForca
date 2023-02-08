@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+}
+
+:root{
+    --DarkBlue100: #609ED4;
+    --DarkBlue200: #356EA9;
+    --DarkBlue300: #0A3871;
+    --DarkBlue400: #072B61;
+    --DarkBlue500: #052051;
+    
+    --LightBlue100: #F3F5FC;
+    --LightBlue200: #EFF1FA;
+    --LightBlue300: #E9ECF8;
+    --LightBlue400: #AAB2D5;
+    --LightBlue500: #757FB2;
+    
+    --Gray100: #CED4DA;
+    --Gray200: #ADB5BD;
+    --Gray300: #868E96;
+    --Gray400: #495057;
+    --Gray500: #343A40;
+
+}
+
+header{
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+header>img{
+    margin-left: 5rem;
+    width: auto;
+}
+
+header>h1{
+    width: 80%;
+    text-align: start;
+    color: var(--DarkBlue300);
+    font-size: 75px;
+}
+
+.container_main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh;
+}
+
+.container_main > img {
+    padding: 15px;
+}
+
+.btn{
+    border-radius: 24px;
+    font-size: 16px;
+    margin-top: 8px;
+    padding: 24px;
+    text-align: center;
+    width: 317px;
+    cursor: pointer;
+}
+
+.btn-start{
+    background-color: var(--DarkBlue300);
+    color: var(--LightBlue100);
+}
+
+.btn-add{
+    color: var(--DarkBlue300);
+}
+
+
+/* Estilo Rodapé */
+
+footer > a:visited{
+    color: var(--Gray200);
+}
+
+footer{
+    background-color: var(--DarkBlue100);
+    padding: 15px;
+    text-align: center;
+    color: var(--LightBlue200);
+    font-weight: bold;
+}
+
+footer:hover{
+    background-color: var(--DarkBlue400);
+    color: var(--LightBlue200);
+}
