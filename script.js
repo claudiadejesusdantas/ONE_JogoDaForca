@@ -1,6 +1,6 @@
 //Selectores
-let words = ["html", "javascript", "css", "logica"];
-let tabuleiro = document.getElementById("gallows").getContext('2d');
+let words = ["programacao","oracle", "alura","html", "javascript", "css", "logica"];
+let gameBoard = document.getElementById("gallows").getContext('2d');
 let secretWord = "";
 
 function chooseSecretWord(){
@@ -12,5 +12,7 @@ function chooseSecretWord(){
 function startGame(){
     document.getElementById('container_main').style.display = "none";
     chooseSecretWord();
+    drawCanvas();
+    drawLines();
 }
 
