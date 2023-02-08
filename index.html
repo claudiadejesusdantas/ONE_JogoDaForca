@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="./script.js" defer></script>
 </head>
 
 <body>
@@ -16,19 +17,17 @@
         <img src="./images/logo.svg">
         <h1>Jogo da Forca - ONE</h1>
     </header>
-
-    <div class="container_main">
-        <button class="btn btn-start"> 
-            Começar o jogo
-        </button>
-        
-        <button class="btn btn-add"> 
-            Adicionar a palavra
-        </button>
-
-        
-    </div>
-
+    
+    <section id="container_main" class="container_main">
+            <button onclick="test()" type="submit" class="btn btn-start"> 
+                Começar o jogo
+            </button>
+            
+            <button class="btn btn-add"> 
+                Adicionar a palavra
+            </button>
+    </section>
+    
     <footer>&copy; Desenvolvido por: <a href="https://github.com/claudiadejesusdantas" target="_blank">Claudia de Jesus Dantas</a></footer>
 </body>
 </html>
