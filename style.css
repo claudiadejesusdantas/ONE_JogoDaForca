@@ -77,7 +77,10 @@ header>h1{
 }
 
 #container_gallows{
-    /* background-color: rebeccapurple; */
+    margin-left: 2.5rem;
+    width: 1024px;
+    height:800px;
+    height: auto;
 }
 
 /* Estilo Rodapé */

@@ -1,10 +1,13 @@
 //Selectores
-let words = ["PROGRAMACAO","ORACLE", "ALURA","HTML", "JAVASCRIPT", "CSS", "LOGICA"];
+let words = ["HTML"];
 // let words = ["programacao","logica", "alura","html", "javascript", "css", "logica"];
 let gameBoard = document.getElementById("gallows").getContext('2d');
 let secretWord = "";
 let userLetters = [];
 let errors = [];
+let qtdMaxErrors = 6;
+let userErrors = 0;
+let userLostGame = false;
 
 function chooseSecretWord(){
     let word = words[Math.floor(Math.random()*words.length)]
@@ -12,26 +15,45 @@ function chooseSecretWord(){
     console.log(secretWord)
 }
 
+function ascii (a) { return a.charCodeAt(0); }
+
 function verifyLetter(key){
     let state = false;
-    console.log(key)
-    if(key >= 65 && userLetters.indexOf(key) || key <= 90 && userLetters.indexOf(key)){
+    
+    if(ascii(key) >= 65 && userLetters.indexOf(key) || ascii(key) <= 90 && userLetters.indexOf(key)){
+    
         userLetters.push(key)
-        console.log(key)
-        console.log(userLetters)
         return state
     }
     else{
         state = true
         userLetters.push(key)
-        console.log(state)
-        console.log(userLetters, "if true")
         return state
     }
 }
 
 function addLetterIncorrect(){
     errors -= 1
+}
+
+function verifyMaxErrors(){
+    userErrors++
+    drawErrors(userErrors);
+    if(userErrors === qtdMaxErrors){
+        alert("Você perdeu!");
+        userLostGame = true;
+    }
+}
+
+function drawErrors(error){
+    switch(error){
+        case 1: drawError1(); break;
+        case 2: drawError2(); break;
+        case 3: drawError3(); break;
+        case 4: drawError4(); break;
+        case 5: drawError5(); break;
+        case 6: drawError6(); break;
+    }
 }
 
 
@@ -41,9 +63,12 @@ function startGame(){
 
     drawCanvas();
     drawLines();
+    drawGallows();
 
     document.onkeydown = (e) => {
         let letter = e.key.toUpperCase()
+        if(userLostGame) return; 
+
         if (verifyLetter(letter) && secretWord.includes(letter)){ 
             for(let i = 0; i < secretWord.length; i++){
                 if( secretWord[i] === letter){
@@ -54,14 +79,16 @@ function startGame(){
         else{
             addLetterIncorrect(letter)
             writeLetterIncorrect(letter, errors)
+            verifyMaxErrors();
+
         }
     }
 }
 
-//captar a tecla digitada
-//verificar se é uma letra
-//saber se a palavra secreta inclui a letra digitada
-//escrever letra correta
-//escrever letra incorreta
-//contar os erros
 
+// ADICIONAR PALAVRA
+function addWord(){
+    let newWord = prompt("Adicionar palavra nova:")
+    words.push(newWord.toUpperCase())  
+    console.log(words)
+}
