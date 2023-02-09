@@ -23,8 +23,8 @@ function drawLines(){
 
     let widthWord = 600/secretWord.length
     for(let i = 0; i < secretWord.length; i++){
-        gameBoard.moveTo(250+(widthWord*i), 400)
-        gameBoard.lineTo(300+(widthWord*i), 400)
+        gameBoard.moveTo(250+(widthWord*i), 320)
+        gameBoard.lineTo(300+(widthWord*i), 320)
     }
     gameBoard.stroke()
     gameBoard.closePath()
@@ -50,15 +50,15 @@ function writeLetterCorrect(index){
     gameBoard.fillStyle = "#0A3871"
     gameBoard.lineWidth = 6
     let breadth = 600/secretWord.length
-    gameBoard.fillText(secretWord[index], 260 + (breadth*index), 380 )
+    gameBoard.fillText(secretWord[index], 260 + (breadth*index), 310 )
 }
 
 function writeLetterIncorrect(letter, errors){
     gameBoard.font = "bold 40px Inter"
     gameBoard.lineCap = "round"
-    gameBoard.fillStyle = "#0A3871"
+    gameBoard.fillStyle = "#ADB5BD"
     gameBoard.lineWidth = 6
-    gameBoard.fillText(letter, 10 + (40*(10 - errors)), 500, 40)
+    gameBoard.fillText(letter, 10 + (40*(10 - errors)), 250, 40)
 }
 
 function drawError1(){

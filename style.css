@@ -81,6 +81,7 @@ header>h1{
     width: 1024px;
     height:800px;
     height: auto;
+    display: none;
 }
 
 /* Estilo Rodapé */

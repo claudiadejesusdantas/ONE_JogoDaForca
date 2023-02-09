@@ -20,7 +20,7 @@ function ascii (a) { return a.charCodeAt(0); }
 function verifyLetter(key){
     let state = false;
     
-    if(ascii(key) >= 65 && userLetters.indexOf(key) || ascii(key) <= 90 && userLetters.indexOf(key)){
+    if(key >= 65 && userLetters.indexOf(key) || key <= 90 && userLetters.indexOf(key)){
     
         userLetters.push(key)
         return state
@@ -59,6 +59,7 @@ function drawErrors(error){
 
 function startGame(){
     document.getElementById('container_main').style.display = "none";
+    document.getElementById('container_gallows').style.display = "block";
     chooseSecretWord();
 
     drawCanvas();
