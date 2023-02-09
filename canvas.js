@@ -29,3 +29,21 @@ function drawLines(){
     gameBoard.stroke()
     gameBoard.closePath()
 }
+
+function writeLetterCorrect(index){
+    gameBoard.font = "bold 52px Inter"
+    gameBoard.lineCap = "round"
+    gameBoard.fillStyle = "#0A3871"
+    gameBoard.lineWidth = 6
+    let breadth = 600/secretWord.length
+    gameBoard.fillText(secretWord[index], 500 + (breadth*index), 600 )
+}
+
+function writeLetterIncorrect(letter, errors){
+    gameBoard.font = "bold 40px Inter"
+    gameBoard.lineCap = "round"
+    gameBoard.fillStyle = "#0A3871"
+    gameBoard.lineWidth = 6
+    gameBoard.fillText(letter, 100 + (40*(10 - errors)), 720, 40)
+
+}

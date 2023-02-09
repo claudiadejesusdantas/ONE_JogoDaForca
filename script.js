@@ -1,8 +1,10 @@
 //Selectores
-let words = ["programacao","oracle", "alura","html", "javascript", "css", "logica"];
+let words = ["PROGRAMACAO","ORACLE", "ALURA","HTML", "JAVASCRIPT", "CSS", "LOGICA"];
+// let words = ["programacao","logica", "alura","html", "javascript", "css", "logica"];
 let gameBoard = document.getElementById("gallows").getContext('2d');
 let secretWord = "";
 let userLetters = [];
+let errors = [];
 
 function chooseSecretWord(){
     let word = words[Math.floor(Math.random()*words.length)]
@@ -10,9 +12,10 @@ function chooseSecretWord(){
     console.log(secretWord)
 }
 
-function verifyWord(key){
+function verifyLetter(key){
     let state = false;
-    if(key >= 65 && userLetters.indexOf(key) || key <= 90){
+    console.log(key)
+    if(key >= 65 && userLetters.indexOf(key) || key <= 90 && userLetters.indexOf(key)){
         userLetters.push(key)
         console.log(key)
         console.log(userLetters)
@@ -21,10 +24,14 @@ function verifyWord(key){
     else{
         state = true
         userLetters.push(key)
-        console.log(key)
-        console.log(userLetters)
+        console.log(state)
+        console.log(userLetters, "if true")
         return state
     }
+}
+
+function addLetterIncorrect(){
+    errors -= 1
 }
 
 
@@ -36,9 +43,17 @@ function startGame(){
     drawLines();
 
     document.onkeydown = (e) => {
-        let letra = e.key.toUpperCase()
-        if (verifyWord(letra)){
-
+        let letter = e.key.toUpperCase()
+        if (verifyLetter(letter) && secretWord.includes(letter)){ 
+            for(let i = 0; i < secretWord.length; i++){
+                if( secretWord[i] === letter){
+                    writeLetterCorrect(i) 
+                }
+            }
+        } 
+        else{
+            addLetterIncorrect(letter)
+            writeLetterIncorrect(letter, errors)
         }
     }
 }
